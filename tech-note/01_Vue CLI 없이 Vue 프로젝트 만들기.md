@@ -76,13 +76,15 @@
 > [참고] 바벨 관련 플러그인, 프리셋 설정 방법
 >
 > ```JSON
-> // (1) `.babelrc` 파일 작성
+> // (1) 별도의 .babelrc 파일 작성
 > {
 >   "presets": ["@babel/preset-env"]
 > }
 > ```
 >
+
 > ```javascript
+> // (2) webpack.config.js의 module 부분에 작성
 > module.exports = {
 >   module: {
 >     rules: [
