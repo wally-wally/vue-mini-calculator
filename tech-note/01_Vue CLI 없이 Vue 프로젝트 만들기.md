@@ -76,30 +76,29 @@
 > [참고] 바벨 관련 플러그인, 프리셋 설정 방법
 >
 > ```JSON
-> // (1) 별도의 .babelrc 파일 작성
+> // (첫 번째 방법) 별도의 .babelrc 파일 작성
 > {
->   "presets": ["@babel/preset-env"]
+>     "presets": ["@babel/preset-env"]
 > }
 > ```
->
 
 > ```javascript
-> // (2) webpack.config.js의 module 부분에 작성
+> // (두 번째 방법) webpack.config.js의 module 부분에 작성
 > module.exports = {
->   module: {
->     rules: [
->       {
->         test: /\.js$/,
->         exclude: /node_modules/,
->         use: {
->           loader: "babel-loader",
->           options: {
->             presets: ["@babel/preset-env"]
->           }
->         }
->       }
->     ]
->   }
+>     module: {
+>        rules: [
+>          {
+>            test: /\.js$/,
+>            exclude: /node_modules/,
+>            use: {
+>              loader: "babel-loader",
+>              options: {
+>                presets: ["@babel/preset-env"]
+>              }
+>            }
+>          }
+>        ]
+>     }
 > };
 > ```
 
@@ -145,7 +144,7 @@ module.exports = {
 
 <br>
 
-## (1) `entry`
+### (1) `entry`
 
 ```javascript
 entry: {
@@ -160,7 +159,7 @@ entry: {
 
 <br>
 
-### (2) module
+### (2) `module`
 
 ```javascript
 // 파일 확장자명 정규 표현식 모음
