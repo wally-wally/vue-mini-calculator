@@ -194,7 +194,41 @@ module: {
 
 - webpack이 이해할 수 있도록 변환해주는 역할을 하는 loader를 설정할 때 `module` 부분에 작성한다.
 - `rules` 라는 배열로 선언하여 각 파일별로 어떤 로더를 사용할 것인지 설정할 수 있다.
-- `test`에는 로딩할 파일을 확장자명 형태의 정규 표현식을 작성하고 `use`에는 적용할 로더를 설정한다.
+- `test`에는 로딩할 파일을 확장자명 형태의 정규 표현식을 작성하고 `use`에는 적용할 로더를 설정한다. 그리고 `exclude`는 적용하지 않을 예외 경로를 선언하는 부분이다.
   - 만약 여러 개의 로더를 적용할 때는 배열 형태로 작성하고 이 때 <b>작성하는 로더의 순서가 매우 중요하니 이 점 유의하자!</b>
 
-(작성중...)
+<br>
+
+### (3) `plugins`
+
+```javascript
+plugins: [
+  new HtmlWebpackPlugin({
+    template: './public/index.html',
+  }),
+  
+  new VueLoaderPlugin(),
+],
+```
+
+- `plugins`를 통해서 번들링할 때 다양한 옵션들을 설정할 수 있다.
+- `html-webpack-plugin`은 `template`에 설정된 html 파일을 바탕으로 빌드한 후에 번들링한 css, js 파일들을 html 파일에 자동으로 추가해준다.
+- `vue-loader-plugin`은 `vue-loader`를 사용하기 위핸 추가적으로 설치해야하는 plugin이다.(`vue-loader` 15 버전 이상부터 적용)
+
+<br>
+
+### (4) `output`
+
+```javascript
+output: {
+  filename: 'app.js',
+  path: path.join(__dirname, 'dist'),
+},
+```
+
+- `output`은 번들링된 결과물을 어디에, 어떻게 저장할지 결정하는 옵션이다.
+- `filename`: 번들링된 결과물의 파일명
+  - 만약 `filename`을 `[nane].js`로 하게 되면 `entry` 부분에서 선언한 `key`의 이름이 `[name]` 부분에 들어간다. 즉, 위 코드를 예로 들면 `webpack`을 수행하면 `app.js` 라는 파일이 `dist/` 폴더 안에 생긴다.
+- `path` : 번들링된 결과물 저장 경로(모든 출력 파일을 저장할 로컬 디렉토리 경로(절대 경로))
+  - cf) `publicPath` : 배포 빌드 할 때 webpack plugins, CSS나 HTML 파일안에 URL 들을 업데이트 해주기 위한 것(prefix 개념)(번들 파일을 업로드 한 위치(서버 루트에 상대적))
+
