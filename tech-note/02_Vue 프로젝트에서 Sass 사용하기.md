@@ -204,7 +204,6 @@ const sassRegex = /\.s[ac]ss$/;
 
 module.exports = {
   // 생략
-
   module: {
     rules: [
       // 생략
@@ -217,8 +216,8 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               additionalData: `
-			    @import './src/assets/scss/style.scss';
-			  `
+                @import './src/assets/scss/style.scss';
+              `
             },
           },
         ],
