@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const vueRegex = /\.vue$/;
 const javascriptRegex = /\.js$/;
-const cssRegex = /\.css$/;
+const sassRegex = /\.s[ac]ss$/;
 
 module.exports = {
   entry: {
@@ -24,10 +24,18 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: cssRegex,
+        test: sassRegex,
         use: [
           'vue-style-loader',
-          'css-loader'
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              additionalData: `
+                @import './src/assets/scss/style.scss';
+              `
+            },
+          },
         ],
       },
     ]

@@ -8,8 +8,9 @@
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 h1 {
-  color: crimson;
+  font-weight: $fontBold;
+  color: $color-error;
 }
 </style>
