@@ -1,15 +1,22 @@
 const path = require('path');
 
+// 외부 플러그인
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+// 파일 확장자명 정규표현식
 const vueRegex = /\.vue$/;
 const javascriptRegex = /\.js$/;
 const sassRegex = /\.s[ac]ss$/;
 
+// path.join() 을 이용한 경로 지정
+const entryPoint = path.join(__dirname, 'src', 'main.js');
+const buildPoint = path.join(__dirname, 'dist');
+const aliasPoint = path.join(__dirname, 'src');
+
 module.exports = {
   entry: {
-    app: path.join(__dirname, 'src', 'main.js'),
+    app: entryPoint,
   },
 
   module: {
@@ -51,12 +58,12 @@ module.exports = {
 
   output: {
     filename: 'app.js',
-    path: path.join(__dirname, 'dist'),
+    path: buildPoint,
   },
 
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
-    }
-  }
+      '@': aliasPoint,
+    },
+  },
 };
