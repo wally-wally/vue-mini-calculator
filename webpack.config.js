@@ -3,11 +3,15 @@ const path = require('path');
 // 외부 플러그인
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // 파일 확장자명 정규표현식
 const vueRegex = /\.vue$/;
 const javascriptRegex = /\.js$/;
 const sassRegex = /\.s[ac]ss$/;
+
+// 개발 환경 모드
+const mode = process.env.NODE_ENV || 'development';
 
 // path.join() 을 이용한 경로 지정
 const entryPoint = path.join(__dirname, 'src', 'main.js');
@@ -52,13 +56,22 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: templatePoint,
+			minify:
+				mode === 'production'
+					? {
+							collapseWhitespace: true,
+							removeComments: true,
+					  }
+					: false,
 		}),
 
 		new VueLoaderPlugin(),
+
+		new CleanWebpackPlugin(),
 	],
 
 	output: {
-		filename: 'app.js',
+		filename: '[name].js',
 		path: buildPoint,
 	},
 
