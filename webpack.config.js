@@ -20,6 +20,8 @@ const buildPoint = path.join(__dirname, 'dist');
 const aliasPoint = path.join(__dirname, 'src');
 
 module.exports = {
+	mode,
+
 	entry: {
 		app: entryPoint,
 	},
