@@ -11,6 +11,7 @@ const sassRegex = /\.s[ac]ss$/;
 
 // path.join() 을 이용한 경로 지정
 const entryPoint = path.join(__dirname, 'src', 'main.js');
+const templatePoint = path.join(__dirname, 'public', 'index.html');
 const buildPoint = path.join(__dirname, 'dist');
 const aliasPoint = path.join(__dirname, 'src');
 
@@ -50,7 +51,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
+      template: templatePoint,
     }),
     
     new VueLoaderPlugin(),
