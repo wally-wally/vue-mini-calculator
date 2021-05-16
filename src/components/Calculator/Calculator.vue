@@ -40,15 +40,25 @@ export default {
 		},
 
 		setSign(sign) {
-			this.changeShowResultMode();
-
-			this.showResult();
+			this.addNumbers();
 
 			this.sign = sign;
 			this.tempValue = '';
 		},
 
 		showResult() {
+			this.addNumbers();
+		},
+
+		reset() {
+			this.changeShowResultMode();
+
+			this.numbers = [];
+			this.sign = '+';
+			this.tempValue = '';
+		},
+
+		addNumbers() {
 			if (this.isEmptyTempValue()) {
 				return;
 			}
@@ -56,13 +66,6 @@ export default {
 			this.changeShowResultMode();
 
 			this.numbers.push(`${this.sign}${this.tempValue}`);
-		},
-
-		reset() {
-			this.changeShowResultMode();
-
-			this.numbers = [];
-			this.tempValue = '';
 		},
 
 		isZeroCase(value) {
