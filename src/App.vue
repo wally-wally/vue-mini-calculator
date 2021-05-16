@@ -1,6 +1,6 @@
 <template>
-	<div class="calculator">
-		<h1 class="calculator__title">Mini Calculator</h1>
+	<div class="calculator__app">
+		<h1 class="calculator__app--title">Mini Calculator</h1>
 		<Calculator />
 	</div>
 </template>
@@ -17,13 +17,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.calculator {
+.calculator__app {
 	@include alignCenter();
 	width: 400px;
 	height: 400px;
 	text-align: center;
 
-	&__title {
+	&--title {
 		@include headerUnderline(5px, 15px, 1px solid #bbb);
 		font-weight: $fontBold;
 		color: $colorError;

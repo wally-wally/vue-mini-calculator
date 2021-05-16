@@ -1,13 +1,13 @@
 <template>
-	<div>
-		<section class="calculator__wrapper">
+	<section class="calculator">
+		<article class="calculator__wrapper">
 			<Result :numbers="numbers" :sign="sign" :tempValue="tempValue" :mode="mode" />
 			<Buttons @clickNumber="setNumber" @clickSign="setSign" @clickResult="showResult" @clickReset="reset" />
-		</section>
-		<section class="calculator__logs">
+		</article>
+		<article class="calculator__logs">
 			<Logs :numbers="numbers" />
-		</section>
-	</div>
+		</article>
+	</section>
 </template>
 
 <script>
