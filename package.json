@@ -5,7 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "serve": "webpack-dev-server --mode development",
-    "build": "webpack"
+    "build": "webpack",
+    "fix": "eslint --fix --ext .js,.vue src"
   },
   "author": "wally-wally",
   "license": "ISC",
@@ -15,8 +16,13 @@
   "devDependencies": {
     "@babel/core": "^7.14.2",
     "@babel/preset-env": "^7.14.2",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.4",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.9.0",
     "html-webpack-plugin": "^4.4.0",
     "node-sass": "^5.0.0",
     "sass-loader": "^10.1.1",
