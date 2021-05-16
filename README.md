@@ -45,4 +45,4 @@ npm run serve
 
 ## :four: Result
 
-![캡처](https://user-images.githubusercontent.com/52685250/118364929-978a0b00-b5d5-11eb-935d-7c3b582aac50.PNG)
+![캡처](https://user-images.githubusercontent.com/52685250/118393766-adeaa200-b67b-11eb-890f-e297d90a164f.PNG)
