@@ -37,6 +37,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$listItemHeight: 24px; // 로그 하나당 높이
+$listItemInterval: 10px; // 로그 간의 padding 간격
+$maxShowLogCount: 5; // 한 번에 볼 수 있는 계산기 로그 최대 갯수
+
 .log {
 	&__title {
 		@include headerUnderline(5px, 15px, 1px solid #bbb);
@@ -46,15 +50,15 @@ export default {
 		padding: 10px;
 		border: 1px solid #999;
 		box-shadow: $boxShadow;
-		max-height: calc(34px * 5 - 10px);
+		max-height: calc((#{$listItemHeight} + #{$listItemInterval}) * #{$maxShowLogCount} - #{$listItemInterval});
 		overflow-y: auto;
 
 		&--item {
 			display: flex;
-			height: 24px;
+			height: $listItemHeight;
 
 			& + & {
-				padding-top: 10px;
+				padding-top: $listItemInterval;
 			}
 
 			&--index {

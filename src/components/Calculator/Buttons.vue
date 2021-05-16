@@ -64,18 +64,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$numberButtonCount: 10;
+$symbolButtonCount: 4;
+
 .buttons {
 	&__number {
 		margin-bottom: 10px;
 
 		&--item {
-			width: calc(100% / 10);
+			width: calc(100% / #{$numberButtonCount});
 		}
 	}
 
 	&__symbol {
 		&--item {
-			width: calc(100% / 4);
+			width: calc(100% / #{$symbolButtonCount});
 		}
 	}
 }
