@@ -9,6 +9,40 @@
 
 <br>
 
-## :two: Result
+## :two: Tech Stack
+
+📍 **Programming Language** : `Javascript`
+
+📍 **Framework** : `Vue.js`
+
+📍 **Styling Language**: `Scss`
+
+📍 **Development Enviornment** : Windows 10, Node.js 14.17.0
+
+📍 **Using Editor** : Visual Studio Code
+
+<br>
+
+## :three: Getting Started
+
+:round_pushpin: <b>소스코드 클론받기</b>
+
+```bash
+git clone https://github.com/wally-wally/vue-mini-calculator.git
+cd vue-mini-calculator
+```
+
+:round_pushpin: <b>라이브러리 설치 후 로컬에서 서버 구동</b>
+
+```bash
+npm install
+npm run serve
+```
+
+:round_pushpin: <b>`Compiled successfully.` 메시지 확인 후 http://localhost:8080 으로 이동하여 확인</b>
+
+<br>
+
+## :four: Result
 
 ![캡처](https://user-images.githubusercontent.com/52685250/118364929-978a0b00-b5d5-11eb-935d-7c3b582aac50.PNG)
