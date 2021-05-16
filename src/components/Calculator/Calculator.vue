@@ -25,14 +25,21 @@ export default {
 			sign: '+',
 			tempValue: '',
 			mode: calculatorMode.SHOW_RESULT_MODE,
+			isClickedEqualButton: false,
 		};
 	},
 
 	methods: {
 		setNumber(number) {
-			if (this.isZeroCase(number)) {
+			if (this.isClickedEqualButton) {
+				this.tempValue = '';
+			}
+
+			if (this.tempValue === '0') {
 				return;
 			}
+
+			this.changeIsClickedEqualButton(false);
 
 			this.changeTypeNumberMode();
 
@@ -42,16 +49,21 @@ export default {
 		setSign(sign) {
 			this.addNumbers();
 
+			this.changeIsClickedEqualButton(false);
+
 			this.sign = sign;
 			this.tempValue = '';
 		},
 
 		showResult() {
+			this.changeIsClickedEqualButton(true);
 			this.addNumbers();
 		},
 
 		reset() {
 			this.changeShowResultMode();
+
+			this.changeIsClickedEqualButton(false);
 
 			this.numbers = [];
 			this.sign = '+';
@@ -59,7 +71,7 @@ export default {
 		},
 
 		addNumbers() {
-			if (this.isEmptyTempValue()) {
+			if (this.tempValue === '') {
 				return;
 			}
 
@@ -68,20 +80,16 @@ export default {
 			this.numbers.push(`${this.sign}${this.tempValue}`);
 		},
 
-		isZeroCase(value) {
-			return value === '0' && this.isEmptyTempValue();
-		},
-
-		isEmptyTempValue() {
-			return this.tempValue === '';
-		},
-
 		changeTypeNumberMode() {
 			this.mode = calculatorMode.TYPE_NUMBER_MODE;
 		},
 
 		changeShowResultMode() {
 			this.mode = calculatorMode.SHOW_RESULT_MODE;
+		},
+
+		changeIsClickedEqualButton(value) {
+			this.isClickedEqualButton = value;
 		},
 	},
 };
