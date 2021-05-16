@@ -1,2 +1,7 @@
-@import 'variables';
-@import 'button';
+@import 'base/reset';
+@import 'base/variables';
+@import 'base/button';
+
+@import 'mixins/alignCenter';
+@import 'mixins/headerUnderline';
+@import 'mixins/hover';

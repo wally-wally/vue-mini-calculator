@@ -1,0 +1,6 @@
+@mixin headerUnderline($paddingBottom, $marginBottom, $borderBottom) {
+	display: inline-block;
+	padding-bottom: $paddingBottom;
+	margin-bottom: $marginBottom;
+	border-bottom: $borderBottom;
+}

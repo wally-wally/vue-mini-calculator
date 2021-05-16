@@ -18,17 +18,15 @@ export default {
 
 <style lang="scss" scoped>
 .calculator {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	@include alignCenter();
 	width: 400px;
 	height: 400px;
 	text-align: center;
 
 	&__title {
+		@include headerUnderline(5px, 15px, 1px solid #bbb);
 		font-weight: $fontBold;
-		color: $color-error;
+		color: $colorError;
 	}
 }
 </style>
