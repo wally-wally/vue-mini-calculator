@@ -1,13 +1,19 @@
 <template>
-	<section class="calculator__wrapper">
-		<Result :numbers="numbers" :sign="sign" :tempValue="tempValue" :mode="mode" />
-		<Buttons @clickNumber="setNumber" @clickSign="setSign" @clickResult="showResult" @clickReset="reset" />
-	</section>
+	<div>
+		<section class="calculator__wrapper">
+			<Result :numbers="numbers" :sign="sign" :tempValue="tempValue" :mode="mode" />
+			<Buttons @clickNumber="setNumber" @clickSign="setSign" @clickResult="showResult" @clickReset="reset" />
+		</section>
+		<section class="calculator__logs">
+			<Logs :numbers="numbers" />
+		</section>
+	</div>
 </template>
 
 <script>
 import Result from '@/components/Calculator/Result.vue';
 import Buttons from '@/components/Calculator/Buttons.vue';
+import Logs from '@/components/Calculator/Logs.vue';
 import common from '@/common.js';
 
 const calculatorMode = common.mode;
@@ -17,6 +23,7 @@ export default {
 	components: {
 		Result,
 		Buttons,
+		Logs,
 	},
 
 	data() {
@@ -99,6 +106,6 @@ export default {
 .calculator__wrapper {
 	padding: 10px;
 	border: 1px solid #666;
-	box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
+	box-shadow: $boxShadow;
 }
 </style>
